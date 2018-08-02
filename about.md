@@ -1,18 +1,14 @@
 ---
 layout: page
-title: About
+title: 关于我
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+92年摩羯座闷骚IT男
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+3年PHP开发经验，在Linux，Windows和Mac OS下都有开发和维护经验
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+熟练使用MySQL，NoSQL，在处理高并发的场景有自己的一套解决方案，喜欢尝试，喜欢挑战
 
 
-[jekyll-organization]: https://github.com/jekyll
+[WorldSkills 2013](http://www.worldskillsleipzig2013.com/de/) Web Design 项目中国选手(获得第四名优胜奖)
