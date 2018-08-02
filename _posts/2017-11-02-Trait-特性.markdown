@@ -1,0 +1,150 @@
+---
+layout: post
+title:  "Trait 特性"
+date:   2017-11-20 15:00:24 +0800
+categories: PHP
+tags: PHP
+---
+
+# 背景介绍
+
+`PHP`在面向对象的设计时，被设计为**单继承**。什么叫**单继承**？
+
+一个类只能继承一个类，`class A` 继承 `class B`，`class B` 继承 `class C`，但是 `class A` 不能同时继承 `class B` 和 `class C`。
+
+正确写法`demo1.php`:
+```php
+<?php
+
+    class C{}
+
+    class B extends C{}
+
+    class A extends B{}
+
+    $object = new A();
+?>
+```
+
+错误写法`demo2.php`:
+```php
+<?php
+
+    class C{}
+
+    class B{}
+
+    class A extends B, C{}
+
+    $object = new A();
+?>
+```
+
+子类只能继承一个父类，就等于每个人只有一位父亲一样，但是一个父亲可以有多个儿子。
+
+如果想 `class A` 既使用 `class B` 的方法又使用 `class C` 的方法，`PHP` 提出了`接口 (Interface)`。 `PHP` 虽然是单继承，但是可以**多实现**，什么叫多实现？一个类 `class A` 可以同时实现 `class B` 和 `class C` 接口。
+
+写法`demo3.php`:
+```php
+<?php
+    interface C{}
+
+    interface B{}
+
+    class A implements B,C{}
+
+    $object = new A();
+?>
+```
+
+# 作用
+关键词:**假多继承**，**代码复用**，**类的包含**
+
+现在有一个场景:
+
+**需求**: `class A` 既可以使用 `class B` 的方法又可以使用 `class C` 的方法，`class A` 和 `class B` 是继承关系，但是 `class B` 和 `class C`没有继承关系，怎么解决？
+
+**方法**: `class A` 继承 `class B`，同时实现 `interface C`。
+
+写法`demo4.php`:
+
+```php
+<?php
+
+    interface C{
+        public function ccc();
+    }
+
+    class B{
+        public function bbb(){
+            echo "I am class B function bbb";
+        }
+    }
+
+    class A extends B implements C{
+        public function ccc(){
+            echo "I am class A, I need call interface C function ccc."
+        }
+    }
+
+    $object = new A();
+    $object->ccc();
+    $object->bbb();
+?>
+```
+
+如果这时候增加一个 `class D`，也要继承 `class B`，实现 `interface C`，需要重复的写这段代码。
+
+写法`demo5.php`:
+```php
+<?php
+
+    class D extends B implements C{
+        public function ccc(){
+            echo "I am class D, I need call interface C function ccc."
+        }
+    }
+
+    $object = new D();
+    $object->ccc();
+    $object->bbb();
+?>
+```
+
+# 使用
+
+我们思考：能不能将这部分重复代码定义在一个类中，`class A`和`class D`包含这个类呢？
+
+这时候`Trait`应用而生
+
+写法`demo6.php`:
+```php
+<?php
+
+    trait E{
+        public function ccc(){
+            echo "I am trait E, I need call interface function  ccc.";
+        }
+    }
+
+    class A extends B implements C{
+        use E;
+    }
+
+
+    class D extends B implements C{
+        use E;
+    }
+
+    $object = new D();
+    $object->ccc();
+    $object->bbb();
+?>
+```
+
+通过上面的用法，我们可以这样总结：
+1. `trait`本质上还是一个类
+2. 接口`interface`规定了方法的定义，`trait`规定了方法的实现
+3. 可以认为`class A`和`class D`等等其他类在需要`ccc()`方法的时候包含`trait`
+
+综上所述，`trait`是`PHP`实现多继承的一种折中的办法，姑且叫它“**假多继承**”，可以认为一个类`class A`**包含**了另一个类`trait E`，最终目的是为了实现代码复用。
