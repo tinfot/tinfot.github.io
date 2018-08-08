@@ -1,0 +1,91 @@
+---
+layout: post
+title:  "sass安装"
+date:   2017-07-10 15:00:24 +0800
+categories: Sass
+tags: Sass
+---
+
+### 前言
+`sass` 是基于 `Ruby`语言开发而成的，因此安装`sass`之前需要安装`Ruby` [Ruby](http://www.ruby-lang.org)
+
+* Mac 预安装了Ruby
+* Windows 安装后过程中需要勾选加入环境变量
+* Linux 安装后要把Ruby加入环境变量
+
+### 安装
+```shell
+#查看Ruby是否被安装了
+ruby -v
+
+#如安装会打印以下信息(版本不同信息不一)
+ruby 2.0.0p648 (2015-12-16 revision 53162) [universal.x86_64-darwin15]
+```
+
+使用`RubyGems`来安装基于`Ruby`插件。现在，安装`sass`和`compass`
+```shell
+#查看Ruby里RubyGems是否存在
+gem -v
+#如存在则打印以下信息(版本不同信息不一)
+2.0.14.1
+```
+
+```shell
+#安装sass
+gem install sass
+#安装compass
+gem install compass
+```
+
+如果安装成功则有以下输出(版本不同信息不一):
+```shell
+Fetching: sass-3.x.x.gem (100%)
+Successfully installed sass-3.x.x
+Parsing documentation for sass-3.x.x
+Installing ri documentation for sass-3.x.x
+1 gem installed
+```
+
+如果安装成功则有以下输出(版本不同信息不一):
+```shell
+Compass is charityware. If you love it, please donate on our behalf at http://umdf.org/compass Thanks!
+Successfully installed compass-1.0.3
+Parsing documentation for compass-1.0.3
+Installing ri documentation for compass-1.0.3
+1 gem installed
+```
+
+查看刚刚安装的插件
+```shell
+#查看sass版本
+sass -v
+#如安装成功则有以下输出(版本不同信息不一):
+Sass 3.x.x (Selective Steve)
+```
+
+
+### 其他
+如您网络处于国内，或者国外源比较慢，可以尝试切换`gem`源
+```shell
+#删除原来的gem源
+gem source --remove https://rubygems.org/
+
+#添加国内的gem源
+gem sources -a https://gems.ruby-china.org
+
+#打印查看当前的gem源是否替换成功
+gem source -l
+
+#如果成功则有以下输出
+https://gems.ruby-china.org/
+```
+如有SSL问题则切换源为`http://gems.ruby-china.org/`
+
+
+如您在安装过程中遇到权限问题需要在命令前加`sudo`
+```shell
+#安装sass
+sudo gem install sass
+#安装compass
+sudo gem install compass
+```

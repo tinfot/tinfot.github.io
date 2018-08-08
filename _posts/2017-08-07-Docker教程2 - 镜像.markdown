@@ -1,0 +1,60 @@
+---
+layout: post
+title:  "Docker教程2 - 镜像"
+date:   2017-08-07 15:01:24 +0800
+categories: Docker
+tags: Docker
+---
+
+## 查看镜像
+
+首先我们先查看本地Docker里有没有镜像：
+
+```bash
+# 列出所有镜像
+docker images
+
+# 镜像列表
+REPOSITORY    TAG    IMAGE ID    CREATED    SIZE
+
+# 没有镜像
+```
+
+## 安装镜像
+
+安装nginx:
+
+```bash
+# 从docker hub仓库中下载nginx
+docker pull nginx
+
+# 下载中...
+Using default tag: latest
+latest: Pulling from library/nginx
+94ed0c431eb5: Downloading [=>                   ]  458.8kB/22.49MB
+9406c100a1c3: Downloading [>                    ]  229.4kB/21.55MB
+aa74daafd50c: Download complete
+
+# 下载完成
+sing default tag: latest
+latest: Pulling from library/nginx
+94ed0c431eb5: Pull complete
+9406c100a1c3: Pull complete
+aa74daafd50c: Pull complete
+Digest: sha256:788fa27763db6d69ad3444e8ba72f947df9e7e163bad7c1f5614f8fd27a311c3
+Status: Downloaded newer image for nginx:latest
+```
+
+## 查看镜像
+
+我们先看看刚刚安装的镜像：
+
+```bash
+# 列出所有镜像
+docker images
+
+# 镜像列表
+REPOSITORY    TAG      IMAGE ID          CREATED        SIZE
+nginx         latest   b8efb18f159b      11 days ago    107MB
+```
+

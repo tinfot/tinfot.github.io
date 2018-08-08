@@ -1,0 +1,101 @@
+---
+layout: post
+title:  "Mac OS 更新自带的PHP版本"
+date:   2017-11-03 15:01:24 +0800
+categories: PHP
+tags: PHP MacOS
+---
+
+# Mac OS 更新自带的PHP版本
+
+## 1.查看当前系统的PHP版本
+
+```bash
+php -v
+
+# 如果成功则输出以下信息(x是实际的版本号[数字]):
+
+PHP 5.5.x (cli) (built: Aug 21 2016 21:48:49)
+Copyright (c) 1997-2015 The PHP Group
+Zend Engine v2.5.0, Copyright (c) 1998-2015 Zend Technologies
+```
+
+这里我们可以看到我们当前的`PHP`版本是`5.5.x`的，我们想要更新到最新的，或者想要更新到指定的版本怎么更新呢？
+
+## 2.自动下载及安装PHP
+
+这里网上有现成`shell`可供使用，我们这里使用它来安装:
+
+```bash
+# 我这里是选择最新的PHP版本号(只是基于我现在当前的时间最新)
+curl -s http://php-osx.liip.ch/install.sh | bash -s 7.1
+```
+
+安装好后，我们来查看一下现在`PHP`的版本信息:
+
+```bash
+php -v
+
+# 如果成功则输出以下信息(x是实际的版本号[数字]):
+
+PHP 5.5.x (cli) (built: Aug 21 2016 21:48:49)
+Copyright (c) 1997-2015 The PHP Group
+Zend Engine v2.5.0, Copyright (c) 1998-2015 Zend Technologies
+```
+怎么回事？不是更新了吗？
+
+别着急，还需要改一下环境变量!
+
+## 3.更改环境变量
+
+我们先来查看一下刚刚我们安装的`PHP`在哪里
+一般是安装在`/usr/local`里，我们进入这个目录里
+
+```bash
+# 进入目录
+cd /usr/local
+
+# 列出目录下的内容
+ls -al
+
+# 进入目录
+cd php5-7.1.x-20171002-090111
+
+# 进入目录 找到了二进制文件
+cd bin
+
+# 所以这次安装的PHP的完整目录为
+
+/usr/local/php5-7.1.x-20171002-090111/bin
+```
+
+然后我们知道了这个目录后，就来修改环境变量了
+```bash
+# 进入用户根目录
+cd ~
+
+# 打开个人配置
+sudo vim .bash_profile
+
+# 在文件末尾加上这行(要用你实际的安装目录)
+export PATH=/usr/local/php5-7.1.x-20171002-090111/bin:$PATH;
+```
+
+修改好后我们需要加载配置
+```bash
+# 重载配置文件
+source ~/.bash_profile
+
+# 查看PHP 版本信息
+php -v
+
+# 如果成功则输出以下信息(x是实际的版本号[数字]):
+
+PHP 7.1.x (cli) (built: Oct  2 2017 08:58:21) ( NTS )
+Copyright (c) 1997-2017 The PHP Group
+Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies
+    with Zend OPcache v7.1.x, Copyright (c) 1999-2017, by Zend Technologies
+    with Xdebug v2.5.3, Copyright (c) 2002-2017, by Derick Rethans
+```
+
+好了，现在显示的就是刚刚安装的`PHP`版本了。

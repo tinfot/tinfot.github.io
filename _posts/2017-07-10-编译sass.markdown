@@ -1,0 +1,47 @@
+---
+layout: post
+title:  "编译sass"
+date:   2017-07-10 15:01:24 +0800
+categories: Sass
+tags: Sass
+---
+
+### 前言
+编译`sass`有很多种方法，比如命令行编译、sublime的`SASS-Build`、编译软件`Koala`、前端自动化软件`codekit`等等。
+
+### 命令行编译
+
+```shell
+#单个文件转换命令
+sass input.scss output.css
+
+#单个文件监听命令
+sass --watch input.scss:output.css
+
+#目录监听命令
+sass --watch app/sass:public/stylesheets
+```
+
+#### 命令行编译选项
+```shell
+#查看sass帮助
+sass -h
+```
+
+- `--watch` 监听命令
+- `--style` 排版格式
+- `--sourcemap` 开启`sourcemap`调试
+
+```shell
+#编译格式
+sass --watch input:scss:output.css --style compact
+
+#编译添加调试map
+sass --watch input:scss:output.css --sourcemap
+
+#选择编译格式并添加调试map
+sass --watch input:scss:output.css --style expanded --sourcemap
+
+#开启debug信息
+sass --watch input:scss:output.css --debug-info
+```

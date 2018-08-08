@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "介绍几款关于持续集成的工具"
+date:   2017-10-30 15:00:24 +0800
+categories: 持续集成
+tags: 持续集成
+---
+
+# Jenkins
+[Website](https://jenkins.io/)
+
+Build great things at any scale
+
+The leading open source automation server, Jenkins provides hundreds of plugins to support building, deploying and automating any project.
+
+# GoCD
+[Website](https://www.gocd.org/)
+
+Automate and streamline your build-test-release cycle for reliable, continuous delivery of your product.
+
+# Continuum
+[Website](http://continuum.apache.org/)
+
+Continuous Integration and Build Server
+
+Apache Continuum™ is an enterprise-ready continuous integration server with features such as automated builds, release management, role-based security, and integration with popular build tools and source control management systems. Whether you have a centralized build team or want to put control of releases in the hands of developers, Continuum can help you improve quality and maintain a consistent build environment.
+
+# Strider
+
+[Github](https://github.com/Strider-CD/strider)
+
+`Strider` is an Open Source Continuous Deployment / Continuous Integration platform. It is written in Node.JS / JavaScript and uses MongoDB as a backing store. It is published under the BSD license.
+
+
+# BAMBOO
+
+[Website](https://www.atlassian.com/software/bamboo)
+
+Bamboo Server is the choice of professional teams for continuous integration, deployment, and delivery
+
+# Travis CI
+
+[Website](https://travis-ci.com/)
+
+Focus on writing code. Let Travis CI take care
+of running your tests and deploying your apps.

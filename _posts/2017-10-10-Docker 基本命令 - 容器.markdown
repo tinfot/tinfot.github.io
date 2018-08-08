@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "Docker 基本命令 - 容器"
+date:   2017-10-10 15:00:24 +0800
+categories: Docker
+tags: Docker
+---
+
+##### 创建一个容器但是不启动
+```bash
+docker create
+```
+
+##### 创建一个容器并启动
+```bash
+docker run
+```
+
+##### 停止容器
+```bash
+docker stop
+```
+
+##### 启动容器
+```bash
+docker start
+```
+
+##### 重启容器
+```bash
+docker restart
+```
+
+##### 删除容器
+```bash
+docker rm
+```
+
+##### 杀死容器
+```bash
+docker kill
+```
+
+##### 进入容器
+```bash
+docker attach
+```
+
+##### 阻塞容器
+```bash
+docker wait
+```
+
+##### 显示容器
+```bash
+docker ps
+```
+
+##### 查看运行容器的详情
+```bash
+docker inspect
+```

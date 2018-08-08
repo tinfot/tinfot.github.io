@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "Docker教程1 - 安装"
+date:   2017-08-07 15:00:24 +0800
+categories: Docker
+tags: Docker
+---
+
+
+## 安装
+
+[Docker](https://docs.docker.com/docker-for-mac/install/)
+
+下载后安装:
+
+![image](http://www.irichard.cn/wp-content/uploads/2017/08/89B0B44A-4826-47E4-80CD-F281300AF2F2.jpg)
+
+## 运行
+
+运行成功后结果如下:
+
+![image](http://www.irichard.cn/wp-content/uploads/2017/08/8FA86F0D-076F-4793-A52B-DB647587AEB0.jpg)
+
+
+## 测试
+
+```bash
+# 查看docker 信息
+docker info
+
+# 如安装成功则打印以下信息(过长省略):
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 17.06.0-ce
+Storage Driver: overlay2
+ Backing Filesystem: extfs
+ Supports d_type: true
+ Native Overlay Diff: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+....
+```

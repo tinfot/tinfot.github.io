@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "Docker教程3 - 容器"
+date:   2017-08-07 15:01:24 +0800
+categories: Docker
+tags: Docker
+---
+
+## 查看容器
+
+首先我们先查看本地Docker里有没有容器：
+
+```bash
+# 列出所有镜像
+docker ps
+
+# 镜像列表
+CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS    PORTS    NAMES
+
+# 没有容器
+```
+
+## 创建容器
+
+```bash
+# 运行nginx镜像生产容器，打印'hello world'
+docker run nginx /bin/echo 'hello world'
+
+# 输出结果如下:
+hello world
+
+# 查看刚刚的容器是否被创建(查看所有容器)
+docker ps -a
+
+# 输出内容如下:
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                      PORTS               NAMES
+9d62d1a5b39d        nginx               "/bin/echo 'hello ..."   49 seconds ago      Exited (0) 49 seconds ago                       fervent_bose
+
+# 可以看到刚刚的容器已经被创建了
+```
+
+## 进入容器
+
+```bash
+docker run -t -i nginx /bin/bash
+
+docker run --name some-nginx -v /some/content:/usr/share/nginx/html:ro -d nginx
+```

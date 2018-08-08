@@ -1,0 +1,87 @@
+---
+layout: post
+title:  "简单实用Laradock 1"
+date:   2017-11-17 15:01:24 +0800
+categories: Docker
+tags: Docker Laravel
+---
+
+# 环境需求
+```bash
+docker >= 17.0
+docker-compose >= 1.16
+```
+
+# 测试运行
+
+### 检出`Laravel`:
+```bash
+# 将laravel检出至当前目录
+git clone https://github.com/laravel/laravel
+```
+
+### 检出`Laradock`:
+```bash
+# 进入laravel目录
+cd laravel
+
+# 在laravel项目里添加子模块laradock
+git submodule add https://github.com/Laradock/laradock.git
+```
+
+### 配置文件:
+```bash
+# 进入laradock目录
+cd laradock
+
+# 复制配置文件
+cp env-example .env
+```
+
+### 启动容器:
+
+```bash
+# 启动`nginx` 和 `mysql` 服务
+docker-compose up -d nginx mysql
+```
+这个过程需要点时间等待，全部准备就绪后可以看看容器是否启动
+```bash
+# 查看docker容器运行情况
+docker ps -a
+```
+
+### 工作空间:
+
+```bash
+# 使用docker-compose 进入工作空间 bash
+docker-compose exec workspace bash
+
+# 安装laravel所需要的依赖库
+composer install
+
+# 复制配置文件
+cp .env.example .env
+
+# 生成秘钥
+php artisan key:generate
+
+# 离开工作空间
+exit
+```
+
+### 项目
+
+```bash
+# 回到上一级目录laravel
+cd ..
+
+# 给运行所需要用到的目录加权限
+sudo chmod -R 777 storage bootstrap/cache
+```
+
+
+### 运行
+```
+http://localhost
+```
+看看你的程序是否运行起来了吧.

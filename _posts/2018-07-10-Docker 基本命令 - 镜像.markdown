@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "Docker 基本命令 - 镜像"
+date:   2018-07-10 15:00:24 +0800
+categories: Docker
+tags: Docker
+---
+
+##### 列出镜像列表
+```bash
+docker images
+```
+
+##### 列出部分镜像
+```bash
+docker images [name]
+```
+
+##### 列出镜像列表格式化显示
+```bash
+docker images --format "{{.ID}} \t {{.Repository}} \t {{.Tag}}"
+```
+
+##### 删除镜像
+```bash
+docker rmi [ImageID]
+```
+
+##### 删除<none>镜像（如果镜像有容器未停止需要停止容器）
+```bash
+docker rmi $(docker images | grep "none" | awk '{print $3}')
+```
