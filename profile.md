@@ -4,21 +4,19 @@ title: 个人简历
 permalink: /profile/
 ---
 
-## PHP工程师-田科
+## PHP工程师 - 田科
 
-### 基本信息
+### 个人信息
 
-出生年月 | 性别 | 籍贯 | 学历 | 参加工作时间
----|---|---|---|---|
-1992-12 | 男 | 广东梅州 | 大专（在读本科2019年毕业）| 2013-09 |
+**出生年月：** 1992-12   |  **性别：** 男   |   **籍贯：** 广东梅州   |   **手机：** 18620461262
+**E-mail：** richard_tianke@qq.com   |   **学历：** 大专（在读本科，预计2019年毕业）
 
 **Github:** [https://github.com/tinfot](https://github.com/tinfot)
-
 **Blog:** [https://richard.lol](https://richard.lol)
 
 ---
 
-### 个人简介
+## 个人简介
 
 4年 `PHP` 开发经验，熟练使用 `PHP` 各种常用开发框架如（ `Laravel` ，`Yii` ，`CodeIgniter`），会使用 `Swoole` 帮助提升服务器处理能力，搭建 `WebSocket` 服务器处理部分业务；
 
@@ -39,14 +37,17 @@ permalink: /profile/
 为人主动积极，善于参与沟通。
 
 ---
+<br>
+<br>
+<br>
 
-### 工作经历
+## 工作经历
 
 #### [CRAZYBABY](https://crazybaby.com/)
 
-职位：++PHP软件工程师++
+职位：PHP软件工程师
 
-工作时间：++2017-03-至今++
+工作时间：2017-03 --- 至今
 
 **工作内容：**
 1. 帮助部门领导进行任务分工与需求分析
@@ -65,9 +66,9 @@ permalink: /profile/
 
 #### [深圳市小行家科技有限公司](http://xhangjia.com/)
 
-职位：++PHP程序员++
+职位：PHP程序员
 
-工作时间：++2016-03-2017-02++
+工作时间：2016-03 --- 2017-02
 
 **工作内容：**
 1. 负责公司项目开发与管理
@@ -82,9 +83,9 @@ permalink: /profile/
 
 #### [欧派家居集团股份有限公司](http://www.oppein.com/)
 
-职位：++PHP初级程序员---PHP高级程序员++
+职位：PHP初级程序员 --- PHP高级程序员
 
-工作时间：++2014-04-2016-03++
+工作时间：2014-04 --- 2016-03
 
 **工作内容：**
 1. 欧派商城的开发及维护
@@ -104,9 +105,9 @@ permalink: /profile/
 
 #### Saybel Finance Co., Ltd
 
-职位：++PHP初级程序员++
+职位：PHP初级程序员
 
-工作时间：++2013-09-2014-03++
+工作时间：2013-09 --- 2014-03
 
 **工作内容：**
 1. Saybel官方网站的开发与维护
@@ -119,14 +120,15 @@ permalink: /profile/
 2. Saybel系统及APP上线运营使用，积累了不少忠实用户，逐渐实现盈利
 
 ---
+<br>
 
-### 项目经历
+## 项目经历
 
 #### CRAZYBABY 官方网站
 
-* 项目URL：++[https://crazybaby.com/](https://crazybaby.com/)++
-* 项目角色：++开发者++
-* 时间段：++2017-03-至今++
+* 项目URL：[https://crazybaby.com/](https://crazybaby.com/)
+* 项目角色：开发者
+* 时间段：2017-03 --- 至今
 
 **项目描述：**
 
@@ -134,9 +136,9 @@ permalink: /profile/
 
 #### CRAZYBABY COSMOS
 
-* 项目URL：++[https://cosmos.crazybaby.com/](https://cosmos.crazybaby.com/)++
-* 项目角色：++开发者++
-* 时间段：++2017-08-至今++
+* 项目URL：[https://cosmos.crazybaby.com/](https://cosmos.crazybaby.com/)
+* 项目角色：开发者
+* 时间段：2017-08 --- 至今
 
 **项目描述：**
 
@@ -145,9 +147,9 @@ permalink: /profile/
 
 #### 卡卡物联 （物联网数据卡管理平台）
 
-* 项目URL：++[http://www.kakawulian.com/](http://www.kakawulian.com/)++、移动端： ++[http://m.kakawulian.com](http://m.kakawulian.com)++
-* 项目角色：++开发者++
-* 时间段：++2016-08-2017-02++
+* 项目URL：[http://www.kakawulian.com/](http://www.kakawulian.com/)、移动端： [http://m.kakawulian.com](http://m.kakawulian.com)
+* 项目角色：开发者
+* 时间段：2016-08 --- 2017-02
 
 **项目描述：**
 
@@ -155,9 +157,9 @@ permalink: /profile/
 
 #### 欧派商城及各管理系统
 
-* 项目URL：++[http://www.oppein.cn/](http://www.oppein.cn/)++、移动端： ++[http://m.oppein.cn](http://m.oppein.cn)++、CRM: [http://crm.oppein.cn](http://crm.oppein.cn)、Wechat: [http://wx.oppein.cn/](http://wx.oppein.cn/)、活动: [http://lpms.oppein.cn/](http://lpms.oppein.cn/)
-* 项目角色：++开发者++
-* 时间段：++2016-08-2017-02++
+* 项目URL：[http://www.oppein.cn/](http://www.oppein.cn/)、移动端：[http://m.oppein.cn](http://m.oppein.cn)、CRM: [http://crm.oppein.cn](http://crm.oppein.cn)、Wechat: [http://wx.oppein.cn/](http://wx.oppein.cn/)、活动: [http://lpms.oppein.cn/](http://lpms.oppein.cn/)
+* 项目角色：开发者
+* 时间段：2016-08 --- 2017-02
 
 **项目描述：**
 
@@ -168,10 +170,11 @@ permalink: /profile/
 
 #### Saybel Finance 跨国金融交易平台
 
-* 项目URL：++[http://www.saybelbanking.com/](http://www.saybelbanking.com/)++ （已无法访问）
-* 项目角色：++开发者++
-* 时间段：++2013-09-2014-03++
+* 项目URL：[http://www.saybelbanking.com/](http://www.saybelbanking.com/) （已无法访问）
+* 项目角色：开发者
+* 时间段：2013-09 --- 2014-03
 
 **项目描述：**
 
 Saybel Finance 跨国金融交易平台是一个跨国银行转账管理系统，支持用户存款，跨国进行不同货币的转账，可以自由在多语言切换；该项目由新西兰、俄罗斯、中国香港和中国大陆四地联合开发；项目使用 `PEAR` 来管理类库，使用的是自有的一套框架；项目中用到了很多优化技巧，包括分表分库，索引优化，异步处理，缓存队列及跨服务器文件管理等。
+

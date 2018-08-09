@@ -1,0 +1,102 @@
+---
+layout: post
+title:  "重构实例（一）租赁影片"
+date:   2017-12-03 15:01:24 +0800
+categories: 重构
+tags: 重构
+---
+
+
+## 实例简介
+这是一个影片出租店用的程序，计算每一位顾客的消费金额并打印详单。
+操作者告诉程序：顾客租了哪些影片、租期多长，程序便根据租赁时间和影片类型算出费用。
+影片分为三类：普通片、儿童片和新片。
+除了计算费用，还要为常客计算积分，积分会根据租片种类是否为新片而有不同。
+
+## Demo
+
+##### Movie.php 影片
+```php
+class Movie{
+    public static final $CHILDRENS   = 2;
+    public static final $REGULAR     = 0;
+    public static final $NEW_RELEASE = 1;
+
+    private $_title;
+    private $_priceCode;
+
+    public function __construct(string $title, int $priceCode){
+        $this->_title     = $title;
+        $this->_priceCode = $priceCode;
+    }
+
+    public function getPriceCode(){
+        return $this->_priceCode;
+    }
+
+    public function setPriceCode(int $arg){
+        $this->_priceCode = $arg;
+    }
+
+    public function getTitle(){
+        return $this->_title;
+    }
+}
+```
+
+##### Rental.php 租赁
+```php
+class Rental{
+
+    private $_movie;
+    private $_daysRented;
+
+    public function __construct(Movie $movie, int $daysRented){
+        $this->_movie      = $movie;
+        $this->_daysRented = $daysRented;
+    }
+
+    public function getDaysRented(){
+        return $this->_daysRented;
+    }
+
+    public function getMovie(){
+        return $this->_movie;
+    }
+}
+```
+
+##### Customer.php 顾客
+```php
+class Customer{
+
+    private $_name;
+    private $_rentals;
+
+    public function __construct(string $name){
+        $this->_name = $name;
+    }
+
+    public function addRental(Rental $arg){
+        $this->_rentals[] = $arg;
+    }
+
+    public function getName(){
+        return $this->_name;
+    }
+
+    public function statement(){
+        $totalAmount = 0;
+        $frequentRenterPoints = 0;
+        $rentals = $this->rentals;
+        $result = "Rental Record for " . $this->getName() . " \n";
+        foreach($rentals as $rental){
+            $amount = 0;
+
+            switch($rental->getMovie()->getPriceCode()){
+                case "":
+            }
+        }
+    }
+}
+```

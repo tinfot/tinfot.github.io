@@ -1,0 +1,160 @@
+---
+layout: post
+title:  "单例模式"
+date:   2017-06-29 15:00:24 +0800
+categories: 设计模式
+tags: 设计模式
+---
+
+单例模式，正如其名，允许我们创建一个而且只能创建一个对象的类。
+这在整个系统的协同工作中非常有用，特别明确了只需一个类对象的时候。
+那么，为什么要实现这么奇怪的类，只实例化一次？
+在很多场景下会用到，如: 配置类、Session类、Database类、Cache类、File类等等。
+这些只需要实例化一次，就可以在应用全局中使用。
+本文我们以数据库类为例。
+
+### 问题
+如果没有使用单例模式，会有什么样的问题？
+如下是一个简单的数据库连接类，它没有使用单例模式。
+```php
+class Database{
+    public $db = null;
+
+    public function __construct($config = []){
+        $dsn = sprintf('mysql:host=%s;dbname=%s', $config['db_host'], $config['db_name']);
+        $this->db = new PDO($dsn, $config['db_user'], $config['db_pass']);
+    }
+}
+```
+然后创建3个对象:
+```php
+$config = [
+    'db_name' => 'test',
+    'db_host' => 'localhost',
+    'db_user' => 'root',
+    'db_pass' => 'root'
+];
+
+$db1 = new Database($config);
+var_dump($db1);
+$db2 = new Database($config);
+var_dump($db2);
+$db3 = new Database($config);
+var_dump($db3);
+```
+这种情况下，每当我们创建一个这个类的实例，就会新增一个到数据库的连接。
+开发者每在一个地方实例化一次这个类，就会在那里多一个数据库连接。
+不知不觉中，开发者就犯了个错误，给数据库和服务器带来巨大的影响。
+上面的代码输出如下:
+```php
+object(Database)[1]
+    public 'db' => object(PDO)[2]
+object(Database)[3]
+    public 'db' => object(PDO)[4]
+object(Database)[5]
+    public 'db' => object(PDO)[6]
+```
+每个对象都分配一个新的资源ID，都是新的引用，它们占用3个内存的空间。
+如果有100个对象创建，就会占用内存中100块不同的空间，而其余99块并非是必须的。
+
+### 解决
+开发者怎么使用基础框架，如何数据库连接，这很难控制。
+如果在代码评审阶段再找出问题，又会浪费大量的人力物力。
+要解决这样的问题，我们可以控制住基类，在源头上限制这个类，使其无法生成多个对象，如果已经生成过，直接返回。
+于是，我们的目标就是，控制数据库类，使其生成一次而且只能生成一次对象。
+如下就是单例模式连接数据库代码:
+```php
+ class Database{
+
+     // 声明$instace为私有静态属性，用于保存当前类实例化后的对象
+     private static $instance = null;
+
+     // 数据库连接句柄
+     private $db = null;
+
+     // 构造方法声明为私有方法，禁止外部程序使用new实例化，只能在内部new
+     private function __construct($config = []){
+         $dsn = sprintf('mysql:host=%s;dbname=%s', $config['db_host'], $config['db_name']);
+         $this->db = new PDO($dsn, $config['db_user'], $config['db_pass']);
+     }
+
+     // 这个是获取当前类对象的唯一方法
+     public static function getInstance($config = []){
+         //检查对象是否已经存在，不存在则实例化后保存到$instace属性
+         if(self::$instance == null){
+             self::$instance = new self($config);
+         }
+         return self::$instance;
+     }
+
+     // 获取数据库句柄方法
+     public function db(){
+         return $this->db;
+     }
+
+     // 声明成私有方法，禁止克隆对象
+     private function __clone(){}
+
+     // 声明成私有方法，禁止重建对象
+     private function __wakeup(){}
+ }
+ ```
+
+再通过`getInstance()`方法使用类对象
+
+```php
+$config = [
+    'db_name' => 'test',
+    'db_host' => 'localhost',
+    'db_user' => 'root',
+    'db_pass' => 'root'
+];
+
+$db1 = new Database($config);
+var_dump($db1);
+$db2 = new Database($config);
+var_dump($db2);
+$db3 = new Database($config);
+var_dump($db3);
+```
+输出信息如下:
+```php
+object(Database)[1]
+    public 'db' => object(PDO)[2]
+object(Database)[1]
+    public 'db' => object(PDO)[2]
+object(Database)[1]
+    public 'db' => object(PDO)[2]
+```
+对比两个输出可以看出，单例模式中，不同对象获得的资源ID是一样的。
+也就是说，虽然我们用`getInstance()`获取`Database`类对象3次，其实引用的是一个内存空间，PDO也只连接了数据库一次。
+以上的例子是数据库连接类，要使用数据库，在应用中这样获得连接句柄:
+```php
+$db = Database::getInstance($config)->db();
+```
+
+### 特点
+单例模式的特点是4私1公: 静态属性、构造方法、克隆方法、重建方法私有，一个公共静态方法。
+其他方法根据需要增加。
+最基础的单例模式代码如下:
+```php
+class Singleton{
+    private static $instance = null;
+
+    public static function getInstance(){
+        if(self::$instance == null){
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    private function __construct(){}
+    private function __clone(){}
+    private function __wakeup(){}
+}
+```
+`$instance`用以保存类的实例化，`getInstance()`方法提供给外部本类的实例化对象:
+
+单例模式在应用请求的整个生命周期中都有效，这点类似全局变量，会降低程序的可测试性。
+大部分情况下，也可以用依赖注入来代替单例模式，避免在应用中引入不必要的耦合。
+所以，对于仅需生成一个对象类，首先考虑用依赖注入方式，其次考虑用单例模式来实现。

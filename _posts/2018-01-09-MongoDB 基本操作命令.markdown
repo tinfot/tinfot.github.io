@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "MongoDB 基本操作命令"
+date:   2018-01-09 15:01:24 +0800
+categories: MongoDB
+tags: MongoDB
+---
+
+### 连接
+```bash
+# 本机连接的情况
+./mongo
+
+# 连接远程的数据库(将IP和PORT换成实际使用的IP和端口号)
+./mongo ip:port
+```
+
+### 查看
+```bash
+# 所有数据库
+show dbs
+
+# 当前数据库
+db
+
+# 当前数据库的所有表
+show tables
+```
+
+### 创建
+```bash
+# DATABASE_NAME 是数据库的名字
+use DATABASE_NAME
+```
+
+### 删除
+```bash
+# 默认删除当前数据库
+db.dropDatabase()
+
+# 删除集合
+db.collection.drop()
+```
+
