@@ -9,7 +9,7 @@ permalink: /profile/
 ### 个人信息
 
 **出生年月：** 1992-12   |  **性别：** 男   |   **籍贯：** 广东梅州   |   **手机：** 186****1262
-**E-mail：** richard_tianke@qq.com   |   **学历：** 大专（在读本科，预计2019年毕业）
+**E-mail：** richard_tianke@qq.com   |   **学历：** 本科
 
 **Github:** [https://github.com/tinfot](https://github.com/tinfot)
 **Blog:** [https://richard.lol](https://richard.lol)
