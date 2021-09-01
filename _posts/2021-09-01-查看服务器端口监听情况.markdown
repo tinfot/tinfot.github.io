@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "查看服务器端口监听情况"
+date:   2021-09-01 10:01:24 +0800
+categories: Linux
+tags: Linux
+---
+
+## 介绍
+
+在工作运维服务器，通常需要观察一下服务器各个服务的运行状况，
+我们可以使用以下命令来查看进程是否启用：例如我需要看 `nginx` 运行情况
+```bash
+ps -ef | grep nginx
+```
+我们能看到具体的进程ID在运行中
+![img.png](../assets/images/2021-09-01.image1.png)
+
+如果我们需要查看 `nginx` 进程监听的端口需要运行什么命令（在 `MacOS` 下命令有出入）
+```bash
+netstat -lntp
+```
+![img.png](../assets/images/2021-09-01.image2.png)
+
+### MacOS
+```bash
+netstat -anvp tcp
+```
