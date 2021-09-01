@@ -14,13 +14,13 @@ tags: Linux
 ps -ef | grep nginx
 ```
 我们能看到具体的进程ID在运行中
-![img.png](../assets/images/2021-09-01.image1.png)
+![img.png](/assets/images/2021-09-01.image1.png)
 
 如果我们需要查看 `nginx` 进程监听的端口需要运行什么命令（在 `MacOS` 下命令有出入）
 ```bash
 netstat -lntp
 ```
-![img.png](../assets/images/2021-09-01.image2.png)
+![img.png](/assets/images/2021-09-01.image2.png)
 
 ### MacOS
 ```bash
